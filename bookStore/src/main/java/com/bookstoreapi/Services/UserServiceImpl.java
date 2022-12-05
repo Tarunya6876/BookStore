@@ -1,4 +1,4 @@
-package com.bookStore.service;
+package com.bookstoreapi.Services;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,8 +7,10 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.bookStore.model.User;
-import com.bookStore.repository.UserRepository;
+
+import com.bookstoreapi.Model.User;
+import com.bookstoreapi.Repository.UserRepository;
+
 
 @Service
 @Transactional
@@ -46,7 +48,7 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	
-	public User suspendUser(User usr){
+	/*public User suspendUser(User usr){
         Optional<User> userObj = this.userRepository.findById((long) usr.getUserId());
 
         if(userObj.isPresent()){
@@ -61,11 +63,11 @@ public class UserServiceImpl implements UserService{
         else {
             throw new NullPointerException();
         }
-    }
+    }*/
 	
 
 	public User getUserById(long userID) {
-		Optional<User> usrObj = this.userRepository.findById(userID);
+		Optional<User> usrObj = this.userRepository.findById((long) userID);
 
         if(usrObj.isPresent()){
             return usrObj.get();
@@ -74,7 +76,6 @@ public class UserServiceImpl implements UserService{
         }
 	}
 
+
 			
 }
-
-

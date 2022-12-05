@@ -1,4 +1,4 @@
-package com.bookStore.controller;
+package com.bookstoreapi.Controller;
 
 import java.util.List;
 
@@ -7,16 +7,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+/*import org.springframework.web.bind.annotation.PutMapping;*/
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bookStore.model.User;
-import com.bookStore.service.UserService;
+import com.bookstoreapi.Model.User;
+import com.bookstoreapi.Services.UserService;
 
 @RestController
 public class UserController {
-    @Autowired
+	
+	
+	@Autowired
     private UserService userService;
 
     @GetMapping("/user")
@@ -34,7 +36,7 @@ public class UserController {
         return ResponseEntity.ok().body(this.userService.createUser(usr));
     }
 
-    @PutMapping("/user/{userId}")
+    /*@PutMapping("/user/{userId}")
     private ResponseEntity<User> updateUser(@PathVariable int userId, @RequestBody User usr){
         usr.setUserId(userId);
         return ResponseEntity.ok().body(this.userService.updateUser(usr));
@@ -44,10 +46,6 @@ public class UserController {
     private ResponseEntity<User> suspendUser(@PathVariable int userId, @RequestBody User usr){
         usr.setUserId(userId);
         return ResponseEntity.ok().body(this.userService.suspendUser(usr));
-    }
-
+    }*/
+	
 }
-
-
-
-

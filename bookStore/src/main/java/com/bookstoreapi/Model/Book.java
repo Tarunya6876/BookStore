@@ -1,15 +1,27 @@
-package com.bookStore.model;
+package com.bookstoreapi.Model;
+
+
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import com.sun.istack.NotNull;
 
+
 @Entity
-@Table(name="Book")
+@Table(name="book")
 public class Book {
+	
+	public Book() {
+		
+	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,7 +34,12 @@ public class Book {
     @NotNull
 	private double price;
 	private String category;
-	
+	 @CreationTimestamp
+	    private Date createdAt;
+
+	    @UpdateTimestamp
+	    private Date updatedAt;
+
 	
 	public int getBookId() {
 		return bookId;
@@ -66,5 +83,5 @@ public class Book {
                 ", bookPrice=" + price +
                 '}';
     }
-	
+
 }

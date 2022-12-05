@@ -1,5 +1,7 @@
-package com.bookStore.model;
+package com.bookstoreapi.Model;
 
+
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,15 +9,31 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import com.sun.istack.NotNull;
 
 @Entity
 @Table(name="User")
 public class User {
 	
+	/*public User() {
+	}*/
 	
+	
+	/*public User(int userId, String userName, String emailId, int userContact, int status) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.emailId = emailId;
+		this.userContact = userContact;
+		Status = status;
+	}*/
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userId;
 	@NotNull
     private String userName;
@@ -26,14 +44,19 @@ public class User {
 	
 	@Column(name="userStatus")
     private int Status;
-     
+	 @CreationTimestamp
+	    private Date createdAt;
 
-	/*public User(int userId, String userName, String emailId, int userContact) {
+	    @UpdateTimestamp
+	    private Date updatedAt;
+
+	/*public User(int userId, String userName, String emailId, int userContact,int Status) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
 		this.emailId = emailId;
 		this.userContact = userContact;
+		this.Status=Status;
 	}*/
 	
 	public int getUserId() {
@@ -79,5 +102,5 @@ public class User {
                 ", isSuspended=" + Status +
                 '}';
     }
-		  
+	
 }

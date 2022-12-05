@@ -1,4 +1,5 @@
-package com.bookStore.controller;
+package com.bookstoreapi.Controller;
+
 
 import java.util.List;
 
@@ -11,8 +12,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bookStore.model.Book;
-import com.bookStore.service.BookService;
+import com.bookstoreapi.Model.Book;
+import com.bookstoreapi.Services.BookService;
+
 @RestController
 public class BookController {
 	
@@ -40,5 +42,7 @@ public class BookController {
         book.setBookId(bookId);
         return ResponseEntity.ok().body(this.bookService.updateBook(book));
     }
+	
+	
 
 }

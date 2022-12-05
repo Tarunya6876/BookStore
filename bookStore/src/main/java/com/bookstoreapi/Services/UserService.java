@@ -1,8 +1,8 @@
-package com.bookStore.service;
+package com.bookstoreapi.Services;
 
 import java.util.List;
 
-import com.bookStore.model.User;
+import com.bookstoreapi.Model.User;
 
 public interface UserService {
 	
@@ -11,8 +11,8 @@ public interface UserService {
 	
 	List<User> getUser();
 	
-	User getUserById(long userID);
+	User getUserById(long userId);
 	
-    User suspendUser(User usr);
+    /*User suspendUser(User usr);*/
 
 }

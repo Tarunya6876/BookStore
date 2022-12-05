@@ -1,4 +1,7 @@
-package com.bookStore.service;
+package com.bookstoreapi.Services;
+
+import com.bookstoreapi.Model.Book;
+import com.bookstoreapi.Repository.BookRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,20 +11,18 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bookStore.model.Book;
-import com.bookStore.repository.BookRepository;
 
 @Service
 @Transactional
-public class BookServiceImpl implements BookService{
-	
+public class BookServiceImpl implements BookService {
+
 	@Autowired
 	private BookRepository bookRepository;
 
 	@Override
 	public Book addBook(Book bk) {
 		System.out.println("inside service");
-		return bookRepository.save(bk);
+		return this.bookRepository.save(bk);
 	}
 
 	@Override
@@ -58,6 +59,5 @@ public class BookServiceImpl implements BookService{
 	            throw new NullPointerException();
 	        }
 	}
-
 
 }
